@@ -27,4 +27,8 @@ module.exports = function($scope, socket) {
     });
   });
 
+  $scope.disconnect = function() {
+    socket.emit('bot:disconnect', true);
+  };
+
 };

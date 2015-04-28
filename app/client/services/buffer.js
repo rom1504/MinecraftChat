@@ -14,8 +14,9 @@ module.exports = function(socket) {
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
-  socket.on('buffer:error', function(string) {
-    $('#buffer').append('<span style="color:#D62D18;">[i] ' + string + '</span><br>')
+  socket.on('buffer:error', function(error) {
+    if (typeof error === 'object') { error = JSON.stringify(error); }
+    $('#buffer').append('<span style="color:#D62D18;">[i] ' + error + '</span><br>')
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
