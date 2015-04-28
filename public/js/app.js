@@ -12,6 +12,8 @@ app.controller('connectController', function($scope, socket) {
 
   // connect handler
   $scope.connect = function() {
+    $('#connectModal').modal('hide')
+
     if (socket.connected) {
 
       socket.emit('server:connect', {
