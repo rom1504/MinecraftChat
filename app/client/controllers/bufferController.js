@@ -13,9 +13,4 @@ module.exports = function($scope, socket, buffer) {
   buffer.append('---');
   buffer.append('<br>');
 
-  // buffer errors when received
-  socket.on('bot:error', function(error) {
-    buffer.error(error);
-  });
-
 };

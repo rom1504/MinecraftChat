@@ -1,10 +1,11 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="navController">
   <a class="navbar-brand" href="/">Minecraft Chat</a>
   <ul class="nav navbar-nav">
     <li><a style="cursor:pointer" data-toggle="modal" data-target="#connectModal">Connect</a></li>
   </ul>
   <ul class="nav navbar-nav pull-right">
-    <li><a style="color:#9E0F06">Not Connected</a></li>
+    <li ng-hide="connected"><a style="color:#9E0F06">Not Connected</a></li>
+    <li ng-show="connected"><a style="color:#6AC126">Connected to <i>{{host}}:{{port}}</i> as <b>{{username}}</b></a></li>
   </ul>
 </nav>
 

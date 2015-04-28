@@ -16,9 +16,13 @@ module.exports = function(socket) {
       password: data.password
     });
 
+    // store connection params in socket
+    socket.connectionParams = data;
+
     // prepare for errors
     socket.mcbot.on('error', function(error) {
       socket.emit('buffer:error', error);
+      socket.mcbot = null;
     });
 
     // bind bot events

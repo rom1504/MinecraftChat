@@ -30,7 +30,11 @@ module.exports = function(socket) {
   // login event
   bot.on('login', function() {
     socket.emit('buffer:success', 'Successfully logged in as ' + bot.username + ' with entity id ' + bot.entity.id);
-    socket.emit('bot:login')
+    socket.emit('bot:connect', {
+      host: socket.connectionParams.hostname,
+      port: socket.connectionParams.port,
+      username: socket.connectionParams.username
+    });
   });
 
   // spawn event
@@ -69,12 +73,22 @@ module.exports = function(socket) {
 
     // format the buffer with the correct coloring
     buffer = buffer.replace(/§([0-9abcdef])([^§]*)/ig, function replace(regex, color, msg) {
-      return '<span class="color-'+color+'">'+msg+'</span>';
+      return '<span class="color-'+color+'">'+msg.replace(' ', '&nbsp;')+'</span>';
     });
 
     // send line back to the client
     socket.emit('bot:message', buffer);
 
+  });
+
+  bot.on('end', function() {
+    socket.emit('buffer:error', 'Connection lost...');
+    socket.emit('bot:disconnect');
+  });
+
+  bot.on('kick', function(reason) {
+    console.log(reason);
+    socket.emit('buffer:error', 'Kicked for: ' + reason);
   });
 
 };
