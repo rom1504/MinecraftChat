@@ -30,11 +30,13 @@ app.get('/', function(req, res) {
 app.use('/', express.static(path.join(__dirname, '../../public')));
 
 
+// set port
+app.set('port', process.env.PORT || 3000);
 
 
 // initialize http and socket servers
-server.listen(80, function() {
-  console.log('\033c> Server running on port 3000\n');
+server.listen(app.get('port'), function() {
+  console.log('\033c> Server running on port %s\n', app.get('port'));
 });
 
 
