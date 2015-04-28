@@ -4,6 +4,7 @@ module.exports = function(socket) {
   socket.on('disconnect', function() {
     if (socket.mcbot) {
       socket.mcbot.end();
+      socket.mcbot = null;
     }
   });
 
@@ -11,6 +12,7 @@ module.exports = function(socket) {
   socket.on('bot:disconnect', function() {
     if (socket.mcbot) {
       socket.mcbot.end();
+      socket.mcbot = null;
     }
   });
 
