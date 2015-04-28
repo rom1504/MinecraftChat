@@ -19,18 +19,15 @@ var io      = require('socket.io')(server);
 require('./sockets')(io);
 
 
-
-
-// handle root requests
-app.get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '/../views/index.html'));
+// send homepage
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../../public/templates/index.html'));
 });
 
 
 
-
 // public folder serves static content
-app.use('/', express.static('public'));
+app.use('/', express.static(path.join(__dirname, '../../public')));
 
 
 

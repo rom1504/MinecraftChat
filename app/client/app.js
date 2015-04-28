@@ -30,12 +30,6 @@ app.factory('buffer', function() {
 
 
 
-
-
-
-
-
-
 /**
  * CONTROLLERS
  */
