@@ -5,7 +5,8 @@ module.exports = function(socket) {
   socket.on('server:connect', function(data, response) {
 
     if (socket.mcbot) {
-      socket.mcbot.end();
+      socket.emit('buffer:error', 'Pleae disconnect before connecting again');
+      return;
     }
 
     // create mineflayer bot
