@@ -1,0 +1,33 @@
+var mineflayer = require('mineflayer');
+
+module.exports = function(socket) {
+
+  socket.on('server:connect', function(data, response) {
+
+    if (socket.mcbot) {
+      socket.mcbot.end();
+    }
+
+    // create mineflayer bot
+    socket.mcbot = mineflayer.createBot({
+      host: data.hostname,
+      port: data.port,
+      username: data.username,
+      password: data.password
+    });
+
+    // prepare for errors
+    socket.mcbot.on('error', function(error) {
+      socket.emit('buffer:error', error);
+    });
+
+    // bind bot events
+    require('../../bot')(socket);
+
+    // debug
+    console.log('login > ' + data.hostname + ':' + data.port + ' - ' + ' Username: ' + data.username);
+    socket.emit('buffer:info', 'Connecting to server ' + data.hostname + ':' + data.port);
+
+  });
+
+};

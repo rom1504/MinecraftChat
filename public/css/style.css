@@ -1,3 +1,10 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
 body {
   padding-top: 80px;
 }
@@ -10,6 +17,8 @@ body {
   right: 0;
   color: #D6D6D6;
   padding: 0 20px;
+  overflow: scroll;
+  padding-bottom: 10px;
 }
 #chat {
   position: absolute;
