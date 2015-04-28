@@ -1,0 +1,33 @@
+{
+  "name": "Chat",
+  "version": "1.0.0",
+  "description": "Minecraft chat client",
+  "main": "app.js",
+  "dependencies": {
+    "debug": "^2.1.3",
+    "express": "^4.12.3",
+    "mineflayer": "^1.1.0",
+    "socket.io": "^1.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MCBoard/chat.alexkvazos.com.git"
+  },
+  "keywords": [
+    "minecraft",
+    "chat",
+    "client",
+    "web"
+  ],
+  "author": "AlexKvazos",
+  "license": "Propietary Software",
+  "bugs": {
+    "url": "https://github.com/MCBoard/chat.alexkvazos.com/issues"
+  },
+  "homepage": "https://github.com/MCBoard/chat.alexkvazos.com"
+}
