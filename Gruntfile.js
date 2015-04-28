@@ -23,13 +23,25 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+
+    uglify: {
+     target: {
+        files: {
+          'public/js/app.js': ['public/js/app.js']
+        }
+      },
+      options: {
+        mangle: false
+      }
     }
 
   });
 
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['browserify:pro']);
+  grunt.registerTask('build', ['browserify:pro', 'uglify']);
   grunt.registerTask('debug', ['browserify:dev']);
 
 }
