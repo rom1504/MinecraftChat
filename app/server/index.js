@@ -33,7 +33,7 @@ app.use('/', express.static(path.join(__dirname, '../../public')));
 
 
 // initialize http and socket servers
-server.listen(3000, function() {
+server.listen(80, function() {
   console.log('\033c> Server running on port 3000\n');
 });
 
