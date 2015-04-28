@@ -60,3 +60,20 @@ body {
 #send input:focus {
   outline: none;
 }
+
+.color-a { color: #50FF38; }
+.color-b { color: #5BFFFF; }
+.color-c { color: #EA3A3F; }
+.color-d { color: #EF1DFF; }
+.color-e { color: #FAFF34; }
+.color-f { color: #111111; }
+.color-0 { color: #000000; }
+.color-1 { color: #19009C; }
+.color-2 { color: #30A000; }
+.color-3 { color: #379C9A; }
+.color-4 { color: #9A0000; }
+.color-5 { color: #99009C; }
+.color-6 { color: #EF9B00; }
+.color-7 { color: #9A9A9A; }
+.color-8 { color: #43443E; }
+.color-9 { color: #412BFF; }

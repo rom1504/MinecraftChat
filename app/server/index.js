@@ -36,3 +36,9 @@ app.use('/', express.static(path.join(__dirname, '../../public')));
 server.listen(3000, function() {
   console.log('\033c> Server running on port 3000\n');
 });
+
+
+// handle exceptions
+process.on('uncaughtException', function(ex) {
+  console.error(ex);
+});

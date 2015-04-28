@@ -1,3 +1,28 @@
+function stringToCode(string) {
+
+  var dictionary = {
+    'black': 0,
+    'dark_blue': 1,
+    'dark_green': 2,
+    'dark_aqua': 3,
+    'dark_red': 4,
+    'dark_purple': 5,
+    'gold': 6,
+    'gray': 7,
+    'dark_gray': 8,
+    'indigo': 9,
+    'green': 'a',
+    'aqua': 'b',
+    'red': 'c',
+    'light_purple': 'd',
+    'yellow': 'e',
+    'white': 'f'
+  };
+
+  return dictionary[string] || string;
+
+}
+
 module.exports = function(socket) {
 
   var bot = socket.mcbot;
@@ -28,7 +53,7 @@ module.exports = function(socket) {
         if (text) {                           // if text is available
           text = text.replace(/§k/ig, '');    // remove crazy format
           text = text.replace(/§l/ig, '');    // remove bold format
-          buffer += text;                     // add the text to the buffer
+          buffer += '§' + stringToCode(data.color) + text;  // add the text to the buffer
         }
       });
 
@@ -49,7 +74,6 @@ module.exports = function(socket) {
 
     // send line back to the client
     socket.emit('bot:message', buffer);
-    console.log(buffer);
 
   });
 

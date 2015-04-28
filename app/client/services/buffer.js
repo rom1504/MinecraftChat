@@ -5,17 +5,17 @@
 module.exports = function(socket) {
 
   socket.on('buffer:info', function(string) {
-    $('#buffer').append('<span style="color:#2976A9;">&gt; ' + string + '</span><br>\n');
+    $('#buffer').append('<span style="color:#2976A9;">[i] ' + string + '</span><br>\n');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
   socket.on('buffer:success', function(string) {
-    $('#buffer').append('<span style="color:#4AA937;">&gt; ' + string + '</span><br>\n');
+    $('#buffer').append('<span style="color:#4AA937;">[i] ' + string + '</span><br>\n');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
   socket.on('buffer:error', function(string) {
-    $('#buffer').append('<span style="color:#D62D18;">&gt; ' + error + '</span><br>')
+    $('#buffer').append('<span style="color:#D62D18;">[i] ' + error + '</span><br>')
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 

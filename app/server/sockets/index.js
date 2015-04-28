@@ -8,6 +8,7 @@ module.exports = function(io) {
     // bind all events to the socket
     require('./events/connection')(socket);
     require('./events/disconnection')(socket);
+    require('./events/chat')(socket);
 
   });
 

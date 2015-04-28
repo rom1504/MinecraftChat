@@ -1,6 +1,6 @@
 <div id="buffer" ng-controller="bufferController"></div>
 
-<form>
+<form ng-submit="send()" ng-controller="chatController">
   <div id="chat">
     <input type="text" ng-model="chat" placeholder="Type to chat...">
   </div>
