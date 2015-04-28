@@ -16,5 +16,6 @@ npm start
 This will start the application on port `3000` or the one specified by the `PORT`environment variable.
 
 ###Grunt tasks
-`grunt debug` - Builds the client-side javascript application with no minification
-`grunt build` - Builds the client-side javascript application with minification
+
+* `grunt debug` - Builds the client-side javascript application with no minification
+* `grunt build` - Builds the client-side javascript application with minification
