@@ -1,0 +1,34 @@
+<div class="modal fade" id="connectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="connectController">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Connect to Minecraft server</h4>
+        <p>This application only works with 1.8 Minecraft servers.</p>
+      </div>
+      <form ng-submit="connect()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Minecraft Username</label>
+            <input type="text" ng-model="username" class="form-control" placeholder="Steve" required>
+          </div>
+          <div class="form-group">
+            <label>Minecraft Password</label>
+            <input type="password" ng-model="password" class="form-control" placeholder="" required>
+          </div>
+          <div class="form-group">
+            <label>Server IP</label>
+            <input type="text" ng-model="ip" class="form-control" placeholder="mc.server.com" required>
+          </div>
+          <div class="form-group">
+            <label>Server Port (Leave empty if unknown)</label>
+            <input type="number" ng-model="port" class="form-control" placeholder="25565">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Connect</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

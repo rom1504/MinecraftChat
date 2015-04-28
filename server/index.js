@@ -12,17 +12,27 @@ var path    = require('path');
 var server  = require('http').createServer(app);
 var io      = require('socket.io')(server);
 
+
+
+
+// configure socket.io
+require('./sockets')(io);
+
+
+
+
 // handle root requests
 app.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '/../views/index.html'));
 });
 
+
+
+
 // public folder serves static content
-app.use('/static', express.static('public'));
+app.use('/', express.static('public'));
 
 
-// configure socket.io
-require('./sockets')(io);
 
 
 // initialize http and socket servers
