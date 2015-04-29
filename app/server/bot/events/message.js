@@ -1,59 +1,10 @@
-function stringToCode(string) {
-
-  var dictionary = {
-    'black': 0,
-    'dark_blue': 1,
-    'dark_green': 2,
-    'dark_aqua': 3,
-    'dark_red': 4,
-    'dark_purple': 5,
-    'gold': 6,
-    'gray': 7,
-    'dark_gray': 8,
-    'indigo': 9,
-    'green': 'a',
-    'aqua': 'b',
-    'red': 'c',
-    'light_purple': 'd',
-    'yellow': 'e',
-    'white': 'f'
-  };
-
-  return dictionary[string] || 'f';
-
-}
-
-function escapeHtml(unsafe) {
-    return unsafe
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;");
- }
+var stringToCode = require('../../utils').stringToCode;
+var escapeHtml   = require('../../utils').escapeHtml;
 
 module.exports = function(socket) {
 
-  var bot = socket.mcbot;
-
-  // login event
-  bot.on('login', function() {
-    socket.emit('buffer:success', 'Successfully logged in as ' + bot.username + ' with entity id ' + bot.entity.id);
-    socket.emit('bot:connect', {
-      host: socket.connectionParams.hostname,
-      port: socket.connectionParams.port,
-      username: socket.connectionParams.username
-    });
-  });
-
-  // spawn event
-  bot.on('spawn', function() {
-    var pos = bot.entity.position;
-    socket.emit('buffer:info', 'Spawned at X:' + pos.x + ', Y:' + pos.y + ', Z:' + pos.z);
-  });
-
   // message event
-  bot.on('message', function(message) {
+  socket.mcbot.on('message', function(message) {
 
     // empty buffer
     var buffer = '';
@@ -140,11 +91,6 @@ module.exports = function(socket) {
     // send line back to the client
     socket.emit('bot:message', buffer);
 
-  });
-
-  bot.on('end', function() {
-    socket.emit('bot:disconnect');
-    socket.mcbot = null;
   });
 
 };

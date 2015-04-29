@@ -1,11 +1,8 @@
-var mineflayer = require('mineflayer');
-
-
 module.exports = function(io) {
 
   io.on('connection', function(socket) {
 
-    // bind all events to the socket
+    // bind all listeners to the socket
     require('./events/connection')(socket);
     require('./events/disconnection')(socket);
     require('./events/chat')(socket);

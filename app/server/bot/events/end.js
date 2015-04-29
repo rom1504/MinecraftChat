@@ -1,0 +1,8 @@
+module.exports = function(socket) {
+
+  socket.mcbot.on('end', function() {
+    socket.emit('bot:disconnect');
+    socket.mcbot = null;
+  });
+
+};
