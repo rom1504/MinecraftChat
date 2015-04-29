@@ -42,5 +42,5 @@ server.listen(app.get('port'), function() {
 
 // handle exceptions
 process.on('uncaughtException', function(ex) {
-  console.error(ex);
+  console.error(ex.stack);
 });
