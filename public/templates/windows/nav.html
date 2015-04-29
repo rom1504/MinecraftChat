@@ -12,13 +12,13 @@
 
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a style="cursor:pointer" data-toggle="modal" data-target="#connectModal">Connect</a></li>
-      <li><a style="cursor:pointer" ng-click="disconnect()">Disconnect</a></li>
-      <li><a href="https://github.com/AlexKvazos/MinecraftChat" target="new">View on GitHub</a></li>
+      <li><a style="cursor:pointer" ng-hide="connected" data-toggle="modal" data-target="#connectModal">Connect</a></li>
+      <li><a style="cursor:pointer;color:#BE1106" ng-show="connected" ng-click="disconnect()">Disconnect</a></li>
+      <li><a href="https://github.com/AlexKvazos/MinecraftChat" target="new"><i class="fa fa-github"></i> GitHub</a></li>
     </ul>
     <ul class="nav navbar-nav pull-right">
-    <li ng-hide="connected"><a style="color:#9E0F06">Not Connected</a></li>
-    <li ng-show="connected"><a style="color:#6AC126">Connected to <i>{{host}}:{{port}}</i> as <b>{{username}}</b></a></li>
+    <li ng-hide="connected"><a style="color:#9E0F06"><i class="fa fa-fw fa-circle-thin"></i> Not Connected</a></li>
+    <li ng-show="connected"><a style="color:#6AC126"><i class="fa fa-fw fa-circle"></i> {{host}}:{{port}} - <b>{{username}}</b></a></li>
   </ul>
   </div>
 </nav>
