@@ -10,4 +10,7 @@ exports.register = function(app) {
   // buffer factory
   app.factory('buffer', require('./buffer'));
 
+  // sound factory
+  app.factory('sound',  require('./sound'));
+
 };

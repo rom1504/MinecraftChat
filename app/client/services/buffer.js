@@ -2,7 +2,7 @@
  * Buffer Service
  */
 
-module.exports = function(socket) {
+module.exports = function(socket, sound) {
 
   socket.on('buffer:info', function(string) {
     $('#buffer').append('<span style="color:#2976A9;">[i] ' + string + '</span><br>\n');
@@ -12,6 +12,7 @@ module.exports = function(socket) {
   socket.on('buffer:success', function(string) {
     $('#buffer').append('<span style="color:#4AA937;">[i] ' + string + '</span><br>\n');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
+    sound.connected();
   });
 
   socket.on('buffer:error', function(error) {
@@ -30,6 +31,7 @@ module.exports = function(socket) {
     }
     $('#buffer').append('<span style="color:#D62D18;">[i] Error: ' + error + '</span><br>');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
+    sound.error();
   });
 
   socket.on('bot:message', function(string) {
@@ -45,6 +47,7 @@ module.exports = function(socket) {
   socket.on('disconnect', function() {
     $('#buffer').append('<span style="color:#D62D18;">&gt; Connection to chat server has been lost. Reconnecting...</span><br>');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
+    sound.error();
   });
 
   socket.on('bot:disconnect', function() {
