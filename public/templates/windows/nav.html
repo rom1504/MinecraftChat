@@ -1,14 +1,26 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="navController">
-  <a class="navbar-brand" href="/">Minecraft Chat</a>
-  <ul class="nav navbar-nav">
-    <li><a style="cursor:pointer" data-toggle="modal" data-target="#connectModal">Connect</a></li>
-    <li><a style="cursor:pointer" ng-click="disconnect()">Disconnect</a></li>
-    <li><a href="https://github.com/AlexKvazos/MinecraftChat">View on GitHub</a></li>
-  </ul>
-  <ul class="nav navbar-nav pull-right">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">MinecraftChat</a>
+  </div>
+
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><a style="cursor:pointer" data-toggle="modal" data-target="#connectModal">Connect</a></li>
+      <li><a style="cursor:pointer" ng-click="disconnect()">Disconnect</a></li>
+      <li><a href="https://github.com/AlexKvazos/MinecraftChat" target="new">View on GitHub</a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right">
     <li ng-hide="connected"><a style="color:#9E0F06">Not Connected</a></li>
     <li ng-show="connected"><a style="color:#6AC126">Connected to <i>{{host}}:{{port}}</i> as <b>{{username}}</b></a></li>
   </ul>
+  </div>
 </nav>
 
 
