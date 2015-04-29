@@ -19,6 +19,6 @@ module.exports = function($scope, socket) {
       $scope.chat = '';
 
     }
-  }
+  };
 
 };

@@ -28,7 +28,7 @@ module.exports = function(socket) {
           break;
       }
     }
-    $('#buffer').append('<span style="color:#D62D18;">[i] Error: ' + error + '</span><br>')
+    $('#buffer').append('<span style="color:#D62D18;">[i] Error: ' + error + '</span><br>');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
@@ -38,17 +38,17 @@ module.exports = function(socket) {
   });
 
   socket.on('reconnect', function() {
-    $('#buffer').append('<span style="color:#4AA937;">&gt; Connected to chat server established</span><br>')
+    $('#buffer').append('<span style="color:#4AA937;">&gt; Connected to chat server established</span><br>');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
   socket.on('disconnect', function() {
-    $('#buffer').append('<span style="color:#D62D18;">&gt; Connection to chat server has been lost. Reconnecting...</span><br>')
+    $('#buffer').append('<span style="color:#D62D18;">&gt; Connection to chat server has been lost. Reconnecting...</span><br>');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
   socket.on('bot:disconnect', function() {
-    $('#buffer').append('<span style="color:#D62D18;">&gt; You have been disconnected from the Minecraft server.</span><br>')
+    $('#buffer').append('<span style="color:#D62D18;">&gt; You have been disconnected from the Minecraft server.</span><br>');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
@@ -58,5 +58,5 @@ module.exports = function(socket) {
       $('#buffer').append(string + '<br>\n');
       $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
     }
-  }
+  };
 };

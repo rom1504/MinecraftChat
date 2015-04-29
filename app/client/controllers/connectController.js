@@ -6,7 +6,7 @@ module.exports = function($scope, socket) {
 
   // connect handler
   $scope.connect = function() {
-    $('#connectModal').modal('hide')
+    $('#connectModal').modal('hide');
 
     if (socket.connected) {
 
@@ -22,6 +22,6 @@ module.exports = function($scope, socket) {
     } else {
       alert('Server unreachable, please try again later...');
     }
-  }
+  };
 
 };

@@ -19,7 +19,7 @@ module.exports = function($scope, socket) {
     $scope.$apply(function() {
       $scope.connected = false;
     });
-  })
+  });
 
   socket.on('disconnect', function() {
     $scope.$apply(function() {
