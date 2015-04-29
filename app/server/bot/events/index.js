@@ -143,13 +143,14 @@ module.exports = function(socket) {
   });
 
   bot.on('end', function() {
-    socket.emit('buffer:error', 'Connection lost...');
     socket.emit('bot:disconnect');
+    socket.mcbot = null;
   });
 
   bot.on('kick', function(reason) {
     console.log(reason);
     socket.emit('buffer:error', 'Kicked for: ' + reason);
+    socket.mcbot = null;
   });
 
 };
