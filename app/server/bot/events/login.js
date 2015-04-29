@@ -8,6 +8,7 @@ module.exports = function(socket) {
       port: socket.connectionParams.port,
       username: socket.connectionParams.username
     });
+    console.log('logged in > ' + socket.connectionParams.hostname + ':' + socket.connectionParams.port + ' - ' + ' Username: ' + socket.mcbot.username);
   });
 
 };

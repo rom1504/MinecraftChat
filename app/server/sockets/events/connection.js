@@ -31,7 +31,7 @@ module.exports = function(socket) {
     require('../../bot')(socket);
 
     // debug
-    console.log('login > ' + data.hostname + ':' + data.port + ' - ' + ' Username: ' + data.username);
+    console.log('connecting > ' + data.hostname + ':' + data.port + ' - ' + ' Username: ' + data.username);
     socket.emit('buffer:info', 'Connecting to server ' + data.hostname + ':' + data.port);
 
   });
