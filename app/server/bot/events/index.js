@@ -55,8 +55,6 @@ module.exports = function(socket) {
   // message event
   bot.on('message', function(message) {
 
-    console.log(message);
-
     // empty buffer
     var buffer = '';
 
@@ -116,9 +114,6 @@ module.exports = function(socket) {
           break;
         case 'commands.generic.usage':
           text = '§cInvalid command usage';
-          if (message.with[0].translate === 'commands.whitelist.usage') {
-            console.log(message.with[0].json);
-          }
           break;
       }
 
