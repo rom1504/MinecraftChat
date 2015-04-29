@@ -147,10 +147,4 @@ module.exports = function(socket) {
     socket.mcbot = null;
   });
 
-  bot.on('kick', function(reason) {
-    console.log(reason);
-    socket.emit('buffer:error', 'Kicked for: ' + reason);
-    socket.mcbot = null;
-  });
-
 };

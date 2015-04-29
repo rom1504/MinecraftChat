@@ -22,6 +22,7 @@ module.exports = function(socket) {
 
     // prepare for errors
     socket.mcbot.on('error', function(error) {
+      if (error.toString() === 'Error: write after end') return;
       socket.emit('buffer:error', error);
       socket.mcbot = null;
     });

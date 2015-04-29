@@ -16,7 +16,7 @@ module.exports = function(socket) {
 
   socket.on('buffer:error', function(error) {
     if (typeof error === 'object') { error = JSON.stringify(error); }
-    $('#buffer').append('<span style="color:#D62D18;">[i] ' + error + '</span><br>')
+    $('#buffer').append('<span style="color:#D62D18;">[i] Error: ' + error + '</span><br>')
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
@@ -32,6 +32,11 @@ module.exports = function(socket) {
 
   socket.on('disconnect', function() {
     $('#buffer').append('<span style="color:#D62D18;">&gt; Connection to chat server has been lost. Reconnecting...</span><br>')
+    $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
+  });
+
+  socket.on('bot:disconnect', function() {
+    $('#buffer').append('<span style="color:#D62D18;">&gt; You have been disconnected from the Minecraft server.</span><br>')
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
 
