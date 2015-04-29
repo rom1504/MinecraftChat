@@ -15,7 +15,19 @@ module.exports = function(socket) {
   });
 
   socket.on('buffer:error', function(error) {
-    if (typeof error === 'object') { error = JSON.stringify(error); }
+    if (typeof error === 'object') {
+      switch (error.code) {
+        case 'ENOTFOUND':
+          error = 'The server IP could not be found.';
+          break;
+        case 'ETIMEDOUT':
+          error = 'Connection to the server timed out.';
+          break;
+        default:
+          error = JSON.stringify(error);
+          break;
+      }
+    }
     $('#buffer').append('<span style="color:#D62D18;">[i] Error: ' + error + '</span><br>')
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
   });
