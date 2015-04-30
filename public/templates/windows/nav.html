@@ -14,6 +14,7 @@
     <ul class="nav navbar-nav">
       <li><a style="cursor:pointer" ng-hide="connected" data-toggle="modal" data-target="#connectModal">Connect</a></li>
       <li><a style="cursor:pointer;color:#BE1106" ng-show="connected" ng-click="disconnect()">Disconnect</a></li>
+      <li><a style="cursor:pointer" data-toggle="modal" data-target="#serversModal">My Servers</a></li>
       <li><a href="https://github.com/AlexKvazos/MinecraftChat" target="new"><i class="fa fa-github"></i> GitHub</a></li>
     </ul>
     <ul class="nav navbar-nav pull-right">
@@ -26,3 +27,4 @@
 
 <!-- connect modal -->
 <div ng-include="'templates/modals/connect.html'"></div>
+<div ng-include="'templates/modals/servers.html'"></div>

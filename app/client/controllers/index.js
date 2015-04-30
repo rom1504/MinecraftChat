@@ -8,5 +8,6 @@ exports.register = function(app) {
   app.controller('bufferController',  require('./bufferController'));
   app.controller('chatController',    require('./chatController'));
   app.controller('navController',     require('./navController'));
+  app.controller('serversController', require('./serversController'));
 
 };

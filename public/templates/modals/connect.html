@@ -8,21 +8,47 @@
       </div>
       <form ng-submit="connect()">
         <div class="modal-body">
-          <div class="form-group">
-            <label>Minecraft Username/Email</label>
-            <input type="text" ng-model="username" class="form-control" placeholder="Steve" required>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Minecraft Username/Email</label>
+                <input type="text" ng-model="username" class="form-control" placeholder="Steve" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Minecraft Password</label>
+                <input type="password" ng-model="password" class="form-control" placeholder="" required>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Minecraft Password</label>
-            <input type="password" ng-model="password" class="form-control" placeholder="" required>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <h6>My Servers</h6>
+              <table class="table table-bordered" ng-show="servers.length">
+                <tr ng-repeat="server in servers track by $index">
+                  <td>{{server.name}}</td>
+                  <td>{{server.ip}}:{{server.port}}</td>
+                  <td><span class="label label-info" ng-click="select($index)" style="cursor:pointer">Select</span></td>
+                </tr>
+              </table>
+              <p ng-hide="servers.length">You haven't saved any servers</p>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Server IP</label>
-            <input type="text" ng-model="ip" class="form-control" placeholder="mc.server.com" required>
-          </div>
-          <div class="form-group">
-            <label>Server Port (Leave empty if unknown)</label>
-            <input type="number" ng-model="port" class="form-control" placeholder="25565">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Server IP</label>
+                <input type="text" ng-model="ip" class="form-control" placeholder="mc.server.com" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Server Port (Leave empty if unknown)</label>
+                <input type="number" ng-model="port" class="form-control" placeholder="25565">
+              </div>
+            </div>
           </div>
         </div>
         <div class="modal-footer">

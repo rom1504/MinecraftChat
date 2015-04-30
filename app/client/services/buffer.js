@@ -46,7 +46,6 @@ module.exports = function(socket, sound) {
   socket.on('disconnect', function() {
     $('#buffer').append('<span style="color:#D62D18;">&gt; Connection to chat server has been lost. Reconnecting...</span><br>');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
-    sound.error();
   });
 
   socket.on('bot:disconnect', function() {
