@@ -1,5 +1,7 @@
 MinecraftChat
 -------
+[![Circle CI](https://circleci.com/gh/AlexKvazos/MinecraftChat.svg?style=svg)](https://circleci.com/gh/AlexKvazos/MinecraftChat)
+
 Web based Minecraft chat client for 1.8 servers.
 
 ![MinecraftChat Screenshot](http://puu.sh/huBzl/ec3c911abc.png)
