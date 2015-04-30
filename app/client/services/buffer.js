@@ -31,7 +31,6 @@ module.exports = function(socket, sound) {
     }
     $('#buffer').append('<span style="color:#D62D18;">[i] Error: ' + error + '</span><br>');
     $('#buffer').scrollTop($('#buffer').prop('scrollHeight'));
-    sound.error();
   });
 
   socket.on('bot:message', function(string) {
