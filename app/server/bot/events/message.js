@@ -41,7 +41,7 @@ module.exports = function(socket) {
 
     // format the buffer with the correct coloring
     buffer = buffer.replace(/§([0-9abcdef])([^§]*)/ig, function replace(regex, color, msg) {
-      return '<span class="color-'+color+'">'+msg.replace(/ /g, '&nbsp;')+'</span>';
+      return '<span class="color-' + color + '">' + msg.replace(/ /g, '&nbsp;') + '</span>';
     });
 
     // send line back to the client

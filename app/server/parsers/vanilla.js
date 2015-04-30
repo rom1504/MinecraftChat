@@ -3,7 +3,7 @@ var parseExtra   = require('../parsers/extra');
 
 module.exports = function(jsonMsg) {
 
-  var buffer = '';
+  var username, msg, sender, broadcast, connected, max, current, pages, player, victim, killer, achievement;
   var color  = stringToCode(jsonMsg.color);
 
   switch (jsonMsg.translate) {
@@ -11,13 +11,13 @@ module.exports = function(jsonMsg) {
     case 'chat.type.text':
       username    = jsonMsg.with[0].text;
       msg         = jsonMsg.with[1];
-      return '§' + color + '<'+username+'> ' + msg;
+      return '§' + color + '<' + username + '> ' + msg;
 
 
     case 'chat.type.announcement':
       sender      = jsonMsg.with[0];
       broadcast   = parseExtra(jsonMsg.with[1].extra);
-      return '§' + color + '['+sender+'] ' + broadcast;
+      return '§' + color + '[' + sender + '] ' + broadcast;
 
 
     case 'commands.generic.notFound':
@@ -27,13 +27,13 @@ module.exports = function(jsonMsg) {
     case 'commands.players.list':
       connected   = jsonMsg.with[0];
       max         = jsonMsg.with[1];
-      return '§' + color + 'There are '+connected+'/'+max+' players online:';
+      return '§' + color + 'There are ' + connected + '/' + max + ' players online:';
 
 
     case 'commands.help.header':
       current     = jsonMsg.with[0];
       pages       = jsonMsg.with[1];
-      return '§' + color + '--- Showing help page '+current+' of '+pages+' (/help <page>) ---';
+      return '§' + color + '--- Showing help page ' + current + ' of ' + pages + ' (/help <page>) ---';
 
 
     case 'commands.generic.usage':
@@ -81,7 +81,7 @@ module.exports = function(jsonMsg) {
     case 'chat.type.achievement':
       player      = jsonMsg.with[0].text;
       achievement = jsonMsg.with[1].extra[0].translate;
-      return '§' + color + player + ' has just earned the achievement ' + '§a['+parseAchievement(achievement)+']' ;
+      return '§' + color + player + ' has just earned the achievement ' + '§a[' + parseAchievement(achievement) + ']';
 
   }
 
@@ -94,6 +94,8 @@ module.exports = function(jsonMsg) {
 
 
 function parseAdmin(command) {
+
+  var player, gamemode;
 
   switch (command.translate) {
 

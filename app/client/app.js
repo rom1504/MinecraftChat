@@ -1,3 +1,5 @@
+var angular = angular;
+
 // initialize angular application
 var app = angular.module('chat', []);
 

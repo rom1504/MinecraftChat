@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "strict": [2, "never"],
+    "no-multi-spaces": false,
+    "no-alert": false,
+    "key-spacing": false,
+    "curly": false,
+    "no-octal-escape": false
+  },
+  "globals": {
+    "$": true
+  }
+}

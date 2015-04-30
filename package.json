@@ -9,6 +9,7 @@
     "express": "^4.12.3",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.7.0",
+    "grunt-contrib-eslint": "0.0.5",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.4.0",
@@ -18,7 +19,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "grunt eslint",
     "start": "node app/server"
   },
   "repository": {

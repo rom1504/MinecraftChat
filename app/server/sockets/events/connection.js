@@ -3,7 +3,7 @@ var events     = require('../../bot');
 
 module.exports = function(socket) {
 
-  socket.on('server:connect', function(data, response) {
+  socket.on('server:connect', function(data) {
 
     if (socket.mcbot) {
       socket.emit('buffer:error', 'Pleae disconnect before connecting again');

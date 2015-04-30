@@ -1,9 +1,10 @@
 module.exports = function() {
 
-  var connected = "connected";
-  var error     = "error";
+  var createjs = createjs;
 
-  createjs.Sound.registerSound("/sounds/connected.mp3", connected);
+  var connected = 'connected';
+
+  createjs.Sound.registerSound('/sounds/connected.mp3', connected);
 
   return {
     connected: function() {
