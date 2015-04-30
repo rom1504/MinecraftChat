@@ -19,10 +19,13 @@ module.exports = function(socket, sound) {
     if (typeof error === 'object') {
       switch (error.code) {
         case 'ENOTFOUND':
-          error = 'The server IP could not be found.';
+          error = 'The server hostname could not be resolved.';
           break;
         case 'ETIMEDOUT':
           error = 'Connection to the server timed out.';
+          break;
+        case 'ECONNREFUSED':
+          error = 'Connection to the server has been refused.';
           break;
         default:
           error = JSON.stringify(error);
