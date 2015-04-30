@@ -60,9 +60,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('gruntify-eslint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-eslint');
 
   grunt.registerTask('build', ['browserify:pro', 'uglify']);
   grunt.registerTask('debug', ['browserify:dev']);
