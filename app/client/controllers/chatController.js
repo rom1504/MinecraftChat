@@ -6,9 +6,9 @@ module.exports = function($scope, socket) {
 
   $scope.chat = '';
 
-  if (window.location.hostname === 'chat.alexkvazos.com') {
-  socket.emit('chat', { message: 'Connected via web chat client / chat.alexkvazos.me.' });
-  }
+  socket.on('bot:spawn', function() {
+    socket.emit('chat', { message: 'Connected via MinecraftChat - https://chat.alexkvazos.com' });
+  });
 
   $scope.send = function() {
     if ($scope.chat.trim().length > 0) {
