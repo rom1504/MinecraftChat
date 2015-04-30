@@ -10,6 +10,7 @@ module.exports = function($scope, servers) {
     };
     servers.add(server);
     $scope.servers = servers.get();
+    resetForm();
   };
 
 
@@ -17,5 +18,11 @@ module.exports = function($scope, servers) {
     servers.delete(index);
     $scope.servers = servers.get();
   };
+
+  function resetForm() {
+    $scope.name = '';
+    $scope.ip = '';
+    $scope.port = '';
+  }
 
 };
