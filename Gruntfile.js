@@ -34,14 +34,33 @@ module.exports = function(grunt) {
       options: {
         mangle: false
       }
+    },
+
+    watch: {
+      client: {
+        files: ['app/client/**/*.js'],
+        tasks: ['debug']
+      }
+    },
+
+    nodemon: {
+      dev: {
+        script: ['app/server'],
+        options: {
+          watch: ['app/server']
+        }
+      }
     }
 
   });
 
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['browserify:pro', 'uglify']);
   grunt.registerTask('debug', ['browserify:dev']);
+  grunt.registerTask('server', ['nodemon']);
 
 }

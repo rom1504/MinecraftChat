@@ -21,3 +21,5 @@ This will start the application on port `3000` or the one specified by the `PORT
 
 * `grunt debug` - Builds the client-side javascript application with no minification
 * `grunt build` - Builds the client-side javascript application with minification
+* `grunt watch` - Automatically runs `grunt debug` when client-side code changes
+* `grunt server` - Starts server and automatically restart when server-side code changes
