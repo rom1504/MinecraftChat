@@ -1,4 +1,5 @@
 var mineflayer = require('mineflayer');
+var events     = require('../../bot');
 
 module.exports = function(socket) {
 
@@ -29,7 +30,7 @@ module.exports = function(socket) {
     });
 
     // bind bot events
-    require('../../bot')(socket);
+    events(socket);
 
     // debug
     console.log('connecting > ' + data.hostname + ':' + data.port + ' - ' + ' Username: ' + data.username);

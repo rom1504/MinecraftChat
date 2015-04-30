@@ -1,10 +1,14 @@
+// bind all listeners to the bot
+  var login   = require('./events/login');
+  var spawn   = require('./events/spawn');
+  var message = require('./events/message');
+  var end     = require('./events/end');
+
 module.exports = function(socket) {
 
-  // bind all listeners to the bot
-  require('./events/login')(socket);
-  require('./events/spawn')(socket);
-  require('./events/message')(socket);
-  // require('./events/chat')(socket);
-  require('./events/end')(socket);
+  login(socket);
+  spawn(socket);
+  message(socket);
+  end(socket);
 
 };
