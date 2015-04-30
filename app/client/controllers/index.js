@@ -9,5 +9,6 @@ exports.register = function(app) {
   app.controller('chatController',    require('./chatController'));
   app.controller('navController',     require('./navController'));
   app.controller('serversController', require('./serversController'));
+  app.controller('playersController', require('./playersController'));
 
 };

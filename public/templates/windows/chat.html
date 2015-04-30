@@ -1,4 +1,18 @@
-<div id="buffer" ng-controller="bufferController"></div>
+<div id="buffer" ng-controller="bufferController">
+
+  <div id="players" ng-controller="playersController" ng-show="players.length">
+    <div class="header">Players</div>
+    <div class="body">
+      <ul>
+        <li ng-repeat="player in players">
+          <img src="//cravatar.eu/helmavatar/{{player}}/18" width="18px">
+          {{player}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
 
 <form ng-submit="send()" ng-controller="chatController">
   <div id="chat">
