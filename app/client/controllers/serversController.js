@@ -1,5 +1,11 @@
 module.exports = function($scope, servers) {
 
+  function resetForm() {
+    $scope.name = '';
+    $scope.ip = '';
+    $scope.port = '';
+  }
+
   $scope.servers = servers.get();
 
   $scope.add = function() {
@@ -18,11 +24,5 @@ module.exports = function($scope, servers) {
     servers.delete(index);
     $scope.servers = servers.get();
   };
-
-  function resetForm() {
-    $scope.name = '';
-    $scope.ip = '';
-    $scope.port = '';
-  }
 
 };
