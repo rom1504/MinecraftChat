@@ -14,7 +14,13 @@ var app     = express();
 var path    = require('path');
 var server  = require('http').createServer(app);
 var io      = require('socket.io')(server);
+var redis   = require('socket.io-redis');
 
+
+// setup socket.io-redis if connection variables are set
+if (process.env.REDIS_HOST && process.env.REDIS_PORT) {
+  io.adapter(redis({ host: process.env.REDIS_HOST, port: process.env.REDIS_PORT }));
+}
 
 
 
