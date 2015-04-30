@@ -7,48 +7,45 @@
         <p>Save your favorite servers to quickly connect to them.</p>
       </div>
 
-      <div class="modal-body">
-        <h5>My Servers</h5>
-        <table class="table table-bordered" ng-show="servers.length">
-          <tr ng-repeat="server in servers track by $index">
-            <td>{{server.name}}</td>
-            <td>{{server.ip}}:{{server.port}}</td>
-            <td><span class="label label-danger" ng-click="delete($index)" style="cursor:pointer">Delete</span></td>
-          </tr>
-        </table>
+      <form ng-submit="add()">
+        <div class="modal-body">
+          <h5>My Servers</h5>
+          <table class="table table-bordered" ng-show="servers.length">
+            <tr ng-repeat="server in servers track by $index">
+              <td>{{server.name}}</td>
+              <td>{{server.ip}}:{{server.port}}</td>
+              <td><span class="label label-danger" ng-click="delete($index)" style="cursor:pointer">Delete</span></td>
+            </tr>
+          </table>
 
-        <p ng-hide="servers.length">You haven't saved any servers!</p>
+          <p ng-hide="servers.length">You haven't saved any servers!</p>
 
-        <hr>
-        <h5>Add Server</h5>
-        <form ng-submit="add()">
-          <div class="form-group">
-            <label>Server Name</label>
-            <input type="text" class="form-control" ng-model="name" placeholder="Minecraft Server" required>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Server IP</label>
-                <input type="text" class="form-control" ng-model="ip" placeholder="mc.server.com" required>
+          <hr>
+          <h5>Add Server</h5>
+            <div class="form-group">
+              <label>Server Name</label>
+              <input type="text" class="form-control" ng-model="name" placeholder="Minecraft Server" required>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Server IP</label>
+                  <input type="text" class="form-control" ng-model="ip" placeholder="mc.server.com" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Server Port (Leave empty if unknown)</label>
+                  <input type="number" class="form-control" ng-model="port" placeholder="25565">
+                </div>
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Server Port (Leave empty if unknown)</label>
-                <input type="number" class="form-control" ng-model="port" placeholder="25565">
-              </div>
-            </div>
           </div>
-      </div>
-
-      <div class="modal-footer">
-        <span type="submit" class="btn btn-default" data-dismiss="modal">Close</span>
-        <input type="submit" class="btn btn-success" value="Save">
-      </div>
-
+        <div class="modal-footer">
+          <span class="btn btn-default" data-dismiss="modal">Close</span>
+          <input type="submit" class="btn btn-success" value="Save">
+        </div>
       </form>
-
     </div>
   </div>
 </div>
