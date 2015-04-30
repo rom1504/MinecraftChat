@@ -45,7 +45,7 @@ app.set('port', process.env.PORT || 3000);
 
 // initialize http and socket servers
 server.listen(app.get('port'), function() {
-  console.log('\033c> Server running on port %s\n', app.get('port'));
+  console.log('> Server running on port %s\n', app.get('port'));
 });
 
 
