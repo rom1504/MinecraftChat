@@ -6,7 +6,7 @@ module.exports = function(socket) {
     socket.emit('bot:connect', {
       host: socket.connectionParams.hostname,
       port: socket.connectionParams.port,
-      username: socket.connectionParams.username
+      username: socket.mcbot.username
     });
     console.log('logged in > ' + socket.connectionParams.hostname + ':' + socket.connectionParams.port + ' - ' + ' Username: ' + socket.mcbot.username);
   });
