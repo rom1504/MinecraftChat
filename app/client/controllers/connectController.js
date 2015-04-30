@@ -9,6 +9,11 @@ module.exports = function($scope, socket, servers) {
   $scope.select = function(id) {
     $scope.ip =   servers.select(id).ip;
     $scope.port = servers.select(id).port;
+
+    if ($scope.username.length > 0 && $scope.password.length > 0) {
+      $scope.connect();
+    }
+
   };
 
   // connect handler
