@@ -1,7 +1,7 @@
 var stringToCode = require('../utils').stringToCode;
 var parseExtra   = require('../parsers/extra');
 
-module.exports = function(jsonMsg) {
+module.exports = (jsonMsg) => {
 
   var username, msg, sender, broadcast, connected, max, current, pages, player, victim, killer, achievement;
   var color  = stringToCode(jsonMsg.color);

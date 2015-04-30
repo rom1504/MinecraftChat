@@ -4,10 +4,10 @@ var parseExtra    = require('../../parsers/extra');
 
 var escapeHtml   = require('../../utils').escapeHtml;
 
-module.exports = function(socket) {
+module.exports = (socket) => {
 
   // message event
-  socket.mcbot.on('message', function(message) {
+  socket.mcbot.on('message', (message) => {
 
     // empty buffer
     var buffer = '';
@@ -40,7 +40,7 @@ module.exports = function(socket) {
     buffer = escapeHtml(buffer);
 
     // format the buffer with the correct coloring
-    buffer = buffer.replace(/§([0-9abcdef])([^§]*)/ig, function replace(regex, color, msg) {
+    buffer = buffer.replace(/§([0-9abcdef])([^§]*)/ig, (regex, color, msg) => {
       return '<span class="color-' + color + '">' + msg.replace(/ /g, '&nbsp;') + '</span>';
     });
 

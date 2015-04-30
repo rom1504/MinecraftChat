@@ -29,7 +29,7 @@ require('./sockets')(io);
 
 
 // send homepage
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/templates/index.html'));
 });
 
@@ -44,12 +44,10 @@ app.set('port', process.env.PORT || 3000);
 
 
 // initialize http and socket servers
-server.listen(app.get('port'), function() {
+server.listen(app.get('port'), () => {
   console.log('> Server running on port %s\n', app.get('port'));
 });
 
 
 // handle exceptions
-process.on('uncaughtException', function(ex) {
-  console.error(ex.stack);
-});
+process.on('uncaughtException', (ex) => console.error(ex.stack));

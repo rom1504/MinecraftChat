@@ -1,11 +1,11 @@
 var stringToCode = require('../utils').stringToCode;
 
-module.exports = function(extra) {
+module.exports = (extra) => {
 
   var string = '';
 
   // for each piece of text
-  extra.forEach(function(data) {
+  extra.forEach((data) => {
 
     // get the text out of the element
     var text;

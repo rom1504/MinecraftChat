@@ -1,7 +1,7 @@
-module.exports = function(socket) {
+module.exports = (socket) => {
 
 
-  socket.on('disconnect', function() {
+  socket.on('disconnect', () => {
     if (socket.mcbot) {
       socket.mcbot.end();
       delete socket.mcbot;
@@ -9,7 +9,7 @@ module.exports = function(socket) {
   });
 
 
-  socket.on('bot:disconnect', function() {
+  socket.on('bot:disconnect', () => {
     if (socket.mcbot) {
       socket.mcbot.end();
       delete socket.mcbot;

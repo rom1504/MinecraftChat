@@ -1,6 +1,6 @@
-module.exports = function(io) {
+module.exports = (io) => {
 
-  io.on('connection', function(socket) {
+  io.on('connection', (socket) => {
 
     // bind all listeners to the socket
     require('./events/connection')(socket);

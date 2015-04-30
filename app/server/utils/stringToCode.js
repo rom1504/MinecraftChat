@@ -1,4 +1,4 @@
-module.exports = function stringToCode(string) {
+module.exports = (string) => {
 
   var dictionary = {
     'black': 0,

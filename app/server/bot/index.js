@@ -4,7 +4,7 @@
   var message = require('./events/message');
   var end     = require('./events/end');
 
-module.exports = function(socket) {
+module.exports = (socket) => {
 
   login(socket);
   spawn(socket);
