@@ -29,7 +29,6 @@ module.exports = function(socket) {
 
     // the message format is not handled (yet)
     } else {
-      console.log(message);
       return;
     }
 

@@ -3,8 +3,6 @@ var parseExtra   = require('../parsers/extra');
 
 module.exports = function(jsonMsg) {
 
-  console.log(jsonMsg);
-
   var buffer = '';
   var color  = stringToCode(jsonMsg.color);
 
