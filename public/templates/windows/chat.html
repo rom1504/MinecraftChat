@@ -1,11 +1,11 @@
 <div id="buffer" ng-controller="bufferController">
 
   <div id="players" ng-controller="playersController" ng-show="players.length">
-    <div class="header">Players</div>
+    <div class="header">Players [{{players.length}}]</div>
     <div class="body">
       <ul>
         <li ng-repeat="player in players">
-          <img src="//cravatar.eu/helmavatar/{{player}}/18" width="18px">
+          <img src="//cravatar.eu/helmavatar/{{player}}/18" width="18px" height="18px">
           {{player}}
         </li>
       </ul>

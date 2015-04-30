@@ -6,6 +6,7 @@ module.exports = function(io) {
     require('./events/connection')(socket);
     require('./events/disconnection')(socket);
     require('./events/chat')(socket);
+    require('./events/players')(socket);
 
   });
 
