@@ -5,6 +5,9 @@
  * @copyright AlexKvazos 2015
  */
 
+// load environment files from .env file
+require('dotenv').load();
+
 // create new express application
 var express = require('express');
 var app     = express();
