@@ -14,7 +14,10 @@
     "no-octal-escape": false
   },
   "globals": {
-    "$": true
+    "$": true,
+    "angular": true,
+    "io": true,
+    "createjs": true
   },
   "ecmaFeatures": {
     "modules": true
