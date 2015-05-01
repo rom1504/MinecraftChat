@@ -1,7 +1,7 @@
 {
-  "name": "Chat",
+  "name": "MinecraftChat",
   "version": "1.0.0",
-  "description": "Minecraft chat client",
+  "description": "Minecraft web based chat client",
   "main": "bin/start",
   "dependencies": {
     "babel": "^5.1.13",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:MCBoard/chat.alexkvazos.com.git"
+    "url": "git@github.com:AlexKvazos/MinecraftChat.git"
   },
   "keywords": [
     "minecraft",
@@ -36,7 +36,7 @@
   "author": "AlexKvazos",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MCBoard/chat.alexkvazos.com/issues"
+    "url": "https://github.com/AlexKvazos/MinecraftChat/issues"
   },
-  "homepage": "https://github.com/MCBoard/chat.alexkvazos.com"
+  "homepage": "https://github.com/AlexKvazos/MinecraftChat"
 }
