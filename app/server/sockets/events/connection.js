@@ -3,7 +3,7 @@ import events     from '../../bot';
 
 module.exports = (socket) => {
 
-  socket.on('server:connect', (data) => {
+  function onConnection(data) {
 
     // log activity to console
     console.log(`connecting > ${data.hostname}:${data.port} - ${data.username}`);
@@ -36,6 +36,8 @@ module.exports = (socket) => {
     // bind bot events
     events(socket);
 
-  });
+  }
+
+  socket.on('server:connect', onConnection);
 
 };

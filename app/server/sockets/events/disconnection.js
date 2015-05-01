@@ -1,20 +1,14 @@
 module.exports = (socket) => {
 
-
-  socket.on('disconnect', () => {
+  function onDisconnection() {
     if (socket.mcbot) {
       socket.mcbot.end();
       delete socket.mcbot;
     }
-  });
+  }
 
 
-  socket.on('bot:disconnect', () => {
-    if (socket.mcbot) {
-      socket.mcbot.end();
-      delete socket.mcbot;
-    }
-  });
-
+  socket.on('disconnect', onDisconnection);
+  socket.on('bot:disconnect', onDisconnection);
 
 };
