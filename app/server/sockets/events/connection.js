@@ -15,7 +15,7 @@ module.exports = (socket) => {
 
     // if a bot already exists, ask user to disconnect
     if (socket.mcbot) {
-      socket.emit('buffer:error', 'Pleae disconnect before connecting again');
+      socket.emit('buffer:error', 'Please disconnect before connecting again');
       return;
     }
 

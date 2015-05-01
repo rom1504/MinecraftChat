@@ -25,7 +25,10 @@ var io      = socketio(server);
 
 // setup socket.io-redis if connection variables are set
 if (process.env.REDIS_HOST && process.env.REDIS_PORT) {
-  io.adapter(redis({ host: process.env.REDIS_HOST, port: process.env.REDIS_PORT }));
+  io.adapter(redis({
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT
+  }));
 }
 
 

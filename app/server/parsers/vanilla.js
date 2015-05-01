@@ -3,7 +3,9 @@ import parseExtra     from '../parsers/extra';
 
 module.exports = (jsonMsg) => {
 
-  var username, msg, sender, broadcast, connected, max, current, pages, player, victim, killer, achievement;
+  var username, msg, sender, broadcast, connected, max, usage,
+      current, pages, player, victim, killer, achievement;
+
   var color  = stringToCode(jsonMsg.color);
 
   switch (jsonMsg.translate) {
@@ -11,77 +13,79 @@ module.exports = (jsonMsg) => {
     case 'chat.type.text':
       username    = jsonMsg.with[0].text;
       msg         = jsonMsg.with[1];
-      return '§' + color + '<' + username + '> ' + msg;
+      return `§${color}<${username}> ${msg}`;
 
 
     case 'chat.type.announcement':
       sender      = jsonMsg.with[0];
       broadcast   = parseExtra(jsonMsg.with[1].extra);
-      return '§' + color + '[' + sender + '] ' + broadcast;
+      return `§${color}[${sender}] ${broadcast}`;
 
 
     case 'commands.generic.notFound':
-      return '§' + color + 'Unknown command. Try /help for a list of commands';
+      return `§${color}Unknown command. Try /help for a list of commands`;
 
 
     case 'commands.players.list':
       connected   = jsonMsg.with[0];
       max         = jsonMsg.with[1];
-      return '§' + color + 'There are ' + connected + '/' + max + ' players online:';
+      return `§${color}There are ${connected}/${max} players online:`;
 
 
     case 'commands.help.header':
       current     = jsonMsg.with[0];
       pages       = jsonMsg.with[1];
-      return '§' + color + '--- Showing help page ' + current + ' of ' + pages + ' (/help <page>) ---';
+      return `§${color}--- Showing help page ${current} of ${pages} (/help <page>) ---`;
 
 
     case 'commands.generic.usage':
-      return '§' + color + 'Usage: ' + parseCommandUsage(jsonMsg.with[0].translate);
+      usage = parseCommandUsage(jsonMsg.with[0].translate);
+      return `§${color}Usage: ${usage}`;
 
 
     case 'multiplayer.player.left':
       player      = jsonMsg.with[0].text;
-      return '§' + color + player + ' left the game';
+      return `§${color}${player} left the game`;
 
 
     case 'multiplayer.player.joined':
       player      = jsonMsg.with[0].text;
-      return '§' + color + player + ' joined the game';
+      return `§${color}${player} joined the game`;
 
 
     case 'chat.type.admin':
-      return '§' + color + '[' + jsonMsg.with[0] + ': ' + parseAdmin(jsonMsg.with[1]) + ']';
+      sender    = jsonMsg.with[0];
+      msg       = parseAdmin(jsonMsg.with[1]);
+      return `§${color}[${sender}: ${msg}]`;
 
 
     case 'death.attack.mob':
       victim      = jsonMsg.with[0].text;
       killer      = jsonMsg.with[1].text;
-      return '§' + color + victim + ' was slain by ' + killer;
+      return `§${color}${victim} was slain by ${killer}`;
 
 
     case 'death.attack.arrow':
       victim      = jsonMsg.with[0].text;
       killer      = jsonMsg.with[1].text;
-      return '§' + color + victim + ' was shot by ' + killer;
-
+      return `§${color}${victim} was shot by ${killer}`;
 
     case 'death.attack.player':
       victim      = jsonMsg.with[0].text;
       killer      = jsonMsg.with[1].text;
-      return '§' + color + victim + ' was slain by ' + killer;
+      return `§${color}${victim} was slain by ${killer}`;
 
 
     case 'death.attack.explosion.player':
       victim      = jsonMsg.with[0].text;
       killer      = jsonMsg.with[1].text;
-      return '§' + color + victim + ' was blown up by ' + killer;
+      return `§${color}${victim} was blown up by ${killer}`;
 
 
     case 'chat.type.achievement':
       player      = jsonMsg.with[0].text;
-      achievement = jsonMsg.with[1].extra[0].translate;
-      return '§' + color + player + ' has just earned the achievement ' + '§a[' + parseAchievement(achievement) + ']';
+      achievement = parseAchievement(jsonMsg.with[1].extra[0].translate);
+      return `§${color}${player} has just earned the achievement §a[${achievement}]`;
 
   }
 
@@ -95,7 +99,7 @@ module.exports = (jsonMsg) => {
 
 function parseAdmin(command) {
 
-  var player, gamemode;
+  var player, gamemode, p1, p2;
 
   switch (command.translate) {
 
@@ -103,19 +107,23 @@ function parseAdmin(command) {
       return 'Toggled downfall';
 
     case 'commands.op.success':
-      return 'Opped ' + command.with[0];
+      player = command.with[0];
+      return `Opped ${player}`;
 
     case 'commands.tp.success':
-      return 'Teleported ' + command.with[0] + ' to ' + command.with[1];
+      p1 = command.with[0];
+      p2 = command.with[1];
+      return `Teleported ${p1} to ${p2}`;
 
     case 'commands.kill.successful':
-      return 'Killed ' + command.with[0];
+      player = command.with[0];
+      return `Killed ${player}`;
 
     case 'commands.gamemode.success.other':
       player   = command.with[0];
       gamemode = command.with[1].translate.split('.')[1];
       gamemode = gamemode.charAt(0).toUpperCase() + gamemode.slice(1);
-      return 'Set ' + player + ' game mode to ' + gamemode + ' Mode';
+      return `Set ${player} game mode to ${gamemode} Mode`;
 
     default:
       return 'Unknown admin message';
