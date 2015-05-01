@@ -14,7 +14,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.4.0",
     "gruntify-eslint": "^0.1.0",
-    "mineflayer": "latest",
+    "mineflayer": "andrewrk/mineflayer#c8a3c621517b4a6fe1fce3d818c51aa76254bd67",
     "socket.io": "^1.3.5",
     "socket.io-redis": "^0.1.4"
   },
