@@ -1,18 +1,14 @@
 import parseVanilla  from '../../parsers/vanilla';
 import parseExtra    from '../../parsers/extra';
+import {escapeHtml}  from '../../utils';
 
-
-var escapeHtml   = require('../../utils').escapeHtml;
 
 module.exports = (socket) => {
 
-  // message event
   socket.mcbot.on('message', (message) => {
 
     // empty buffer
     var buffer = '';
-
-
 
 
     // parse for json objects with 'extra'
@@ -39,9 +35,10 @@ module.exports = (socket) => {
     // escape any html in the buffer
     buffer = escapeHtml(buffer);
 
-    // format the buffer with the correct coloring
+    // format the buffer with the correct coloring and format whitespace
     buffer = buffer.replace(/§([0-9abcdef])([^§]*)/ig, (regex, color, msg) => {
-      return '<span class="color-' + color + '">' + msg.replace(/ /g, '&nbsp;') + '</span>';
+      msg = msg.replace(/ /g, '&nbsp;');
+      return `<span class="color-${color}">${msg}</span>`;
     });
 
     // send line back to the client
