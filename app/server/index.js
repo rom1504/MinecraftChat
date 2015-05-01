@@ -5,16 +5,22 @@
  * @copyright AlexKvazos 2015
  */
 
-// load environment files from .env file
-require('dotenv').load();
+// required modules
+import express        from 'express';
+import path           from 'path';
+import {createServer} from 'http';
+import socketio       from 'socket.io';
+import redis          from 'socket.io-redis';
+import dotenv         from 'dotenv';
 
-// create new express application
-var express = require('express');
+// load environment files from .env file
+dotenv.load();
+
+
+// create express application, server and socketio instance
 var app     = express();
-var path    = require('path');
-var server  = require('http').createServer(app);
-var io      = require('socket.io')(server);
-var redis   = require('socket.io-redis');
+var server  = createServer(app);
+var io      = socketio(server);
 
 
 // setup socket.io-redis if connection variables are set

@@ -1,8 +1,8 @@
 // bind all listeners to the bot
-  var login   = require('./events/login');
-  var spawn   = require('./events/spawn');
-  var message = require('./events/message');
-  var end     = require('./events/end');
+  import login   from './events/login';
+  import spawn   from './events/spawn';
+  import message from './events/message';
+  import end     from './events/end';
 
 module.exports = (socket) => {
 

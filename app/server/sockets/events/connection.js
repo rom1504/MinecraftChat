@@ -1,5 +1,5 @@
-var mineflayer = require('mineflayer');
-var events     = require('../../bot');
+import mineflayer from 'mineflayer';
+import events     from '../../bot';
 
 module.exports = (socket) => {
 

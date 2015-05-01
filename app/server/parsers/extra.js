@@ -1,4 +1,4 @@
-var stringToCode = require('../utils').stringToCode;
+import {stringToCode} from '../utils';
 
 module.exports = (extra) => {
 

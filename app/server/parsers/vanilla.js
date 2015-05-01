@@ -1,5 +1,5 @@
-var stringToCode = require('../utils').stringToCode;
-var parseExtra   = require('../parsers/extra');
+import {stringToCode} from '../utils';
+import parseExtra     from '../parsers/extra';
 
 module.exports = (jsonMsg) => {
 

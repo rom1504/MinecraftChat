@@ -1,5 +1,5 @@
-var parseVanilla  = require('../../parsers/vanilla');
-var parseExtra    = require('../../parsers/extra');
+import parseVanilla  from '../../parsers/vanilla';
+import parseExtra    from '../../parsers/extra';
 
 
 var escapeHtml   = require('../../utils').escapeHtml;
