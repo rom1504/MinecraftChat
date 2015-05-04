@@ -9,7 +9,7 @@ module.exports = (socket) => {
     socket.emit('buffer:error', error);
 
     // if the bot is logged in and/or is an entity, destroy it
-    if (socket.mcbot.entity) socket.mcbot.end();
+    if (socket.mcbot && socket.mcbot.entity) socket.mcbot.end();
 
     // delete the bot
     delete socket.mcbot;
