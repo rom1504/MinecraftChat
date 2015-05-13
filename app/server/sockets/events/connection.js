@@ -1,12 +1,15 @@
 import mineflayer from 'mineflayer';
+import moment     from 'moment';
 import events     from '../../bot';
 
 module.exports = (socket) => {
 
   function onConnection(data) {
 
+    let timestamp = moment().format('MMM D h:mm:ss a');
+
     // log activity to console
-    console.log(`connecting > ${data.hostname}:${data.port} - ${data.username}`);
+    console.log(`${timestamp}: connecting > ${data.hostname}:${data.port} - ${data.username}`);
 
 
     // inform user that connection is being made
