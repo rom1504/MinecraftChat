@@ -1,4 +1,4 @@
-module.exports = (unsafe) => {
+export default (unsafe) => {
     return unsafe
          .replace(/&/g, '&amp;')
          .replace(/</g, '&lt;')

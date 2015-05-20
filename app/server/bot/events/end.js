@@ -1,9 +1,9 @@
-module.exports = (socket) => {
+export default (socket) => {
 
-  function onEnd() {
+  let onEnd = () => {
     socket.emit('bot:disconnect');
     delete socket.mcbot;
-  }
+  };
 
   socket.mcbot.on('end', onEnd);
 

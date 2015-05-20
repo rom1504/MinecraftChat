@@ -1,2 +1,1 @@
-exports.escapeHtml    = require('./escapeHtml');
-exports.stringToCode  = require('./stringToCode');
+export default require('requireindex')(__dirname);

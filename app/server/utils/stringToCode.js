@@ -1,6 +1,6 @@
-module.exports = (string) => {
+export default (string) => {
 
-  var dictionary = {
+  let dictionary = {
     'black': 0,
     'dark_blue': 1,
     'dark_green': 2,

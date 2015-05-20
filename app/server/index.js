@@ -18,9 +18,9 @@ dotenv.load();
 
 
 // create express application, server and socketio instance
-var app     = express();
-var server  = createServer(app);
-var io      = socketio(server);
+let app     = express();
+let server  = createServer(app);
+let io      = socketio(server);
 
 
 // setup socket.io-redis if connection variables are set

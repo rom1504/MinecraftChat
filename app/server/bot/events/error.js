@@ -1,6 +1,6 @@
-module.exports = (socket) => {
+export default (socket) => {
 
-  function onError(error) {
+  let onError = (error) => {
 
     // this is okay because the connection was ended
     if (error.toString() === 'Error: write after end') return;
@@ -14,7 +14,7 @@ module.exports = (socket) => {
     // delete the bot
     delete socket.mcbot;
 
-  }
+  };
 
   socket.mcbot.on('error', onError);
 

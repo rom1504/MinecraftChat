@@ -1,8 +1,8 @@
 import moment from 'moment';
 
-module.exports = (socket) => {
+export default (socket) => {
 
-  function onLogin() {
+  let onLogin = () => {
     let timestamp = moment().format('MMM D h:mm:ss a');
 
     socket.emit('buffer:success', `Successfully logged in as ${socket.mcbot.username} with entity id ${socket.mcbot.entity.id}`);
@@ -12,7 +12,7 @@ module.exports = (socket) => {
       username: socket.mcbot.username
     });
     console.log(`${timestamp}: logged in > ${socket.connectionParams.hostname}:${socket.connectionParams.port} - Username: ${socket.mcbot.username}`);
-  }
+  };
 
   socket.mcbot.on('login', onLogin);
 

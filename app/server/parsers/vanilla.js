@@ -1,12 +1,12 @@
 import {stringToCode} from '../utils';
 import parseExtra     from '../parsers/extra';
 
-module.exports = (jsonMsg) => {
+export default (jsonMsg) => {
 
-  var username, msg, sender, broadcast, connected, max, usage,
+  let username, msg, sender, broadcast, connected, max, usage,
       current, pages, player, victim, killer, achievement;
 
-  var color  = stringToCode(jsonMsg.color);
+  let color  = stringToCode(jsonMsg.color);
 
   switch (jsonMsg.translate) {
 
@@ -99,7 +99,7 @@ module.exports = (jsonMsg) => {
 
 function parseAdmin(command) {
 
-  var player, gamemode, p1, p2;
+  let player, gamemode, p1, p2;
 
   switch (command.translate) {
 
@@ -136,7 +136,7 @@ function parseAdmin(command) {
 
 function parseAchievement(achievementid) {
 
-  var achievements = {
+  let achievements = {
     'achievement.acquireIron': 'Acquire Hardware',
     'achievement.bakeCake': 'The Lie',
     'achievement.blazeRod': 'Into Fire',
@@ -181,7 +181,7 @@ function parseAchievement(achievementid) {
 
 function parseCommandUsage(commandId) {
 
-  var commands = {
+  let commands = {
     'commands.achievement.usage': '/achievement <give|take> <stat_name|*> [player]',
     'commands.ban.usage': '/ban <name> [reason ...]',
     'commands.banip.usage': '/ban-ip <address|name> [reason ...]',

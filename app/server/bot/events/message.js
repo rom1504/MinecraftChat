@@ -3,9 +3,9 @@ import parseExtra    from '../../parsers/extra';
 import {escapeHtml}  from '../../utils';
 
 
-module.exports = (socket) => {
+export default (socket) => {
 
-  function onMessage(message) {
+  let onMessage = (message) => {
 
     // empty buffer
     var buffer = '';
@@ -44,7 +44,7 @@ module.exports = (socket) => {
     // send line back to the client
     socket.emit('bot:message', buffer);
 
-  }
+  };
 
   socket.mcbot.on('message', onMessage);
 

@@ -5,7 +5,7 @@ import message from './events/message';
 import end     from './events/end';
 
 // bind all listeners to the bot
-module.exports = (socket) => {
+export default (socket) => {
 
   error(socket);
   login(socket);

@@ -1,11 +1,11 @@
-module.exports = (socket) => {
+export default (socket) => {
 
-  function onDisconnection() {
+  let onDisconnection = () => {
     if (socket.mcbot) {
       socket.mcbot.end();
       delete socket.mcbot;
     }
-  }
+  };
 
 
   socket.on('disconnect', onDisconnection);

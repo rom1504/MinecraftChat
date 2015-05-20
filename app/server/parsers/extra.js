@@ -1,14 +1,14 @@
 import {stringToCode} from '../utils';
 
-module.exports = (extra) => {
+export default (extra) => {
 
-  var string = '';
+  let string = '';
 
   // for each piece of text
   extra.forEach((data) => {
 
     // get the text out of the element
-    var text;
+    let text;
     if (typeof data === 'string') {
       text = data;
     } else if (typeof data === 'object') {

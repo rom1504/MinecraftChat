@@ -2,9 +2,9 @@ import mineflayer from 'mineflayer';
 import moment     from 'moment';
 import events     from '../../bot';
 
-module.exports = (socket) => {
+export default (socket) => {
 
-  function onConnection(data) {
+  let onConnection = (data) => {
 
     let timestamp = moment().format('MMM D h:mm:ss a');
 
@@ -39,7 +39,7 @@ module.exports = (socket) => {
     // bind bot events
     events(socket);
 
-  }
+  };
 
   socket.on('server:connect', onConnection);
 
