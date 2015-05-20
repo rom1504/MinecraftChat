@@ -102,3 +102,12 @@ body {
 .color-7 { color: #9A9A9A; }
 .color-8 { color: #43443E; }
 .color-9 { color: #412BFF; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}

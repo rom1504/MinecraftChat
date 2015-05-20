@@ -41,6 +41,10 @@ export default (socket) => {
       return `<span class="color-${color}">${msg}</span>`;
     });
 
+    buffer = buffer.replace(/((([A-Za-z]{3,9}:(?:\/\/))(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.))((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\-\.\!\/\\\w]*))?)/gi, (regex) => {
+      return `<a href="${regex}" target="_blank">${regex}</a>`;
+    });
+
     // send line back to the client
     socket.emit('bot:message', buffer);
 
