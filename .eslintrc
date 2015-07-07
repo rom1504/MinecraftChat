@@ -1,25 +1,25 @@
 {
   "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
+    "browser": 1,
+    "node": 1,
+    "es6": 1
   },
   "rules": {
     "quotes": [2, "single"],
     "strict": [2, "never"],
-    "no-multi-spaces": false,
-    "no-alert": false,
-    "key-spacing": false,
-    "curly": false,
-    "no-octal-escape": false
+    "no-multi-spaces": 0,
+    "no-alert": 0,
+    "key-spacing": 0,
+    "curly": 0,
+    "no-octal-escape": 0
   },
   "globals": {
-    "$": true,
-    "angular": true,
-    "io": true,
-    "createjs": true
+    "$": 1,
+    "angular": 1,
+    "io": 1,
+    "createjs": 1
   },
   "ecmaFeatures": {
-    "modules": true
+    "modules": 1
   }
 }
