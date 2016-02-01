@@ -1,6 +1,11 @@
 <div id="buffer" ng-controller="bufferController">
 
   <div id="players" ng-controller="playersController" ng-show="players.length" class="hidden-xs">
+    <div>
+      <span style="color:#6AC126">x:{{posx}} y:{{posy}} z:{{posz}}</span>
+      <br>
+      <span style="color:#6AC126">Health:{{health}} Food:{{food}}</span>
+    </div>
     <div class="header">Players [{{players.length}}]</div>
     <div class="body">
       <ul>
