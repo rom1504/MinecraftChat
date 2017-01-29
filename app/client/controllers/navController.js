@@ -11,6 +11,7 @@ module.exports = function($scope, socket) {
       $scope.host      = data.host;
       $scope.port      = data.port;
       $scope.username  = data.username;
+      $scope.version   = data.version;
       $scope.connected = true;
     });
   });

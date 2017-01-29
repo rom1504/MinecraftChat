@@ -9,11 +9,11 @@ export default (socket) => {
     let timestamp = moment().format('MMM D h:mm:ss a');
 
     // log activity to console
-    console.log(`${timestamp}: connecting > ${data.hostname}:${data.port} - ${data.username}`);
+    console.log(`${timestamp}: connecting > ${data.hostname}:${data.port} - ${data.version} - ${data.username}`);
 
 
     // inform user that connection is being made
-    socket.emit('buffer:info', `Connecting to server ${data.hostname}:${data.port}`);
+    socket.emit('buffer:info', `Connecting to ${data.version} server ${data.hostname}:${data.port}`);
 
 
     // if a bot already exists, ask user to disconnect
@@ -28,7 +28,8 @@ export default (socket) => {
       host:       data.hostname,
       port:       data.port,
       username:   data.username,
-      password:   data.password
+      password:   data.password,
+      version:    data.version || "1.10"
     });
 
 

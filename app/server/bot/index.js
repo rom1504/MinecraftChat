@@ -7,6 +7,7 @@ import death   from './events/death';
 import rain    from './events/rain';
 import health  from './events/health';
 import move    from './events/move';
+import kicked    from './events/kicked';
 
 // bind all listeners to the bot
 export default (socket) => {
@@ -20,5 +21,6 @@ export default (socket) => {
   rain(socket);
   move(socket);
   health(socket);
+  kicked(socket);
   
 };

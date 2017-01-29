@@ -13,6 +13,7 @@
           <table class="table table-bordered" ng-show="servers.length">
             <tr ng-repeat="server in servers track by $index">
               <td>{{server.name}}</td>
+              <td>{{server.version}}</td>
               <td>{{server.ip}}:{{server.port}}</td>
               <td><span class="label label-danger" ng-click="delete($index)" style="cursor:pointer">Delete</span></td>
             </tr>
@@ -27,17 +28,29 @@
               <input type="text" class="form-control" ng-model="name" placeholder="Minecraft Server" required>
             </div>
             <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label>Server IP</label>
+              <div class="col-sm-8">
+                <label>Server IP</label>
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>{{version}}</span><span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" ng-click="selectversion('1.7')">1.7</a></li>
+                      <li><a href="#" ng-click="selectversion('1.8')">1.8</a></li>
+                      <li><a href="#" ng-click="selectversion('1.9')">1.9</a></li>
+                      <li><a href="#" ng-click="selectversion('1.10')">1.10</a></li>
+                      <li><a href="#" ng-click="selectversion('1.11.2')">1.11.2</a></li>
+                    </ul>
+                  </div>
                   <input type="text" class="form-control" ng-model="ip" placeholder="mc.server.com" required>
                 </div>
+                <input type="text" class="form-control" style="display: none;" ng-model="version">
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <div class="form-group">
                   <label>Server Port (Leave empty if unknown)</label>
                   <input type="number" class="form-control" ng-model="port" placeholder="25565">
                 </div>
+                <input type="text" class="form-control" style="display: none;" ng-model="version">
               </div>
             </div>
             <div class="row">
