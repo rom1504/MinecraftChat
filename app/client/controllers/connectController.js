@@ -5,10 +5,12 @@
 module.exports = function($scope, socket, servers) {
 
   $scope.servers = servers.get();
+  $scope.version = "1.10"
 
   $scope.select = function(id) {
     $scope.ip   = servers.select(id).ip;
     $scope.port = servers.select(id).port;
+    $scope.version = servers.select(id).version;
 
     if ($scope.username.length > 0 && $scope.password.length > 0) {
       $scope.connect();
@@ -26,12 +28,17 @@ module.exports = function($scope, socket, servers) {
         username: $scope.username,
         password: $scope.password,
         hostname: $scope.ip,
-        port: $scope.port || 25565
+        port: $scope.port || 25565,
+        version: $scope.version || "1.10"
       });
 
     } else {
       alert('Server unreachable, please try again later...');
     }
   };
+
+  $scope.selectversion = function(version){
+    $scope.version=version;
+  }
 
 };
