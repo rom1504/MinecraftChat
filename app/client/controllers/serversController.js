@@ -4,7 +4,7 @@ module.exports = function($scope, servers) {
     $scope.name = '';
     $scope.ip = '';
     $scope.port = '';
-    $scope.version = "1.10";
+    $scope.version = "1.16.5";
   }
 
   $scope.servers = servers.get();
@@ -14,7 +14,7 @@ module.exports = function($scope, servers) {
       name: $scope.name,
       ip:   $scope.ip,
       port: $scope.port || 25565,
-      version: $scope.version || "1.10",
+      version: $scope.version || "1.16.5",
     };
     servers.add(server);
     $scope.servers = servers.get();
