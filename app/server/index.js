@@ -14,7 +14,7 @@ import redis          from 'socket.io-redis';
 import dotenv         from 'dotenv';
 
 // load environment files from .env file
-dotenv.load();
+dotenv.config({silent: true});
 
 
 // create express application, server and socketio instance

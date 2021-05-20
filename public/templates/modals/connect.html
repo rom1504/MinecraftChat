@@ -4,7 +4,6 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Connect to Minecraft server</h4>
-        <p>This application only works with 1.8,1.9,1.10,1.11.2 Minecraft servers.</p>
       </div>
       <form ng-submit="connect()">
         <div class="modal-body">
@@ -44,10 +43,16 @@
                 <div class="input-group-btn">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>{{version}}  </span><span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a href="#" ng-click="selectversion('1.8')">1.8</a></li>
-                      <li><a href="#" ng-click="selectversion('1.9')">1.9</a></li>
-                      <li><a href="#" ng-click="selectversion('1.10')">1.10</a></li>
+                      <li><a href="#" ng-click="selectversion('1.7.10')">1.7.10</a></li>
+                      <li><a href="#" ng-click="selectversion('1.8.9')">1.8.9</a></li>
+                      <li><a href="#" ng-click="selectversion('1.9.4')">1.9.4</a></li>
+                      <li><a href="#" ng-click="selectversion('1.10.2')">1.10.2</a></li>
                       <li><a href="#" ng-click="selectversion('1.11.2')">1.11.2</a></li>
+                      <li><a href="#" ng-click="selectversion('1.12.2')">1.12.2</a></li>
+                      <li><a href="#" ng-click="selectversion('1.13.2')">1.13.2</a></li>
+                      <li><a href="#" ng-click="selectversion('1.14.4')">1.14.4</a></li>
+                      <li><a href="#" ng-click="selectversion('1.15.2')">1.15.2</a></li>
+                      <li><a href="#" ng-click="selectversion('1.16.5')">1.16.5</a></li>
                     </ul>
                   </div>
                 <input type="text" ng-model="ip" class="form-control" placeholder="mc.server.com" required>

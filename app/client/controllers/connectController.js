@@ -5,7 +5,7 @@
 module.exports = function($scope, socket, servers) {
 
   $scope.servers = servers.get();
-  $scope.version = "1.10"
+  $scope.version = "1.16.5"
 
   $scope.select = function(id) {
     $scope.ip   = servers.select(id).ip;
@@ -29,7 +29,7 @@ module.exports = function($scope, socket, servers) {
         password: $scope.password,
         hostname: $scope.ip,
         port: $scope.port || 25565,
-        version: $scope.version || "1.10"
+        version: $scope.version || "1.16.5"
       });
 
     } else {
